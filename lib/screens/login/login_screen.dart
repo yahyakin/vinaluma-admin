@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:vinaluma_admin/services/api_service.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -66,9 +65,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: const Center(child: Text('V', style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold))),
                   ),
                   const SizedBox(height: 16),
-                  Text('Vinaluma ERP', style: GoogleFonts.poppins(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
+                  Text('Vinaluma ERP', style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 4),
-                  Text('Yönetim Paneli', style: GoogleFonts.poppins(color: Colors.white70, fontSize: 14)),
+                  Text('Yönetim Paneli', style: TextStyle(color: Colors.white70, fontSize: 14)),
                   const SizedBox(height: 32),
 
                   // Email
@@ -123,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       child: _loading
                           ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
-                          : Text('Giriş Yap', style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 15)),
+                          : Text('Giriş Yap', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15)),
                     ),
                   ),
                 ],

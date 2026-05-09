@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:vinaluma_admin/constants.dart';
 import 'package:vinaluma_admin/services/api_service.dart';
 
@@ -33,7 +32,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         children: [
           Row(
             children: [
-              Text('Ürünler', style: GoogleFonts.poppins(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)),
+              Text('Ürünler', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)),
               const Spacer(),
               ElevatedButton.icon(
                 onPressed: () {},

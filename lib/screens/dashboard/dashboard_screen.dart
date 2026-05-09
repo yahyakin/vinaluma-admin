@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:vinaluma_admin/constants.dart';
 import 'package:vinaluma_admin/services/api_service.dart';
 
@@ -37,7 +36,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Dashboard', style: GoogleFonts.poppins(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)),
+          Text('Dashboard', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)),
           const SizedBox(height: 4),
           Text('Hoşgeldiniz, Yönetim paneline genel bakış', style: TextStyle(color: Colors.white54, fontSize: 13)),
           const SizedBox(height: 24),
@@ -121,7 +120,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ],
           ),
           const Spacer(),
-          Text(stat.value, style: GoogleFonts.poppins(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white)),
+          Text(stat.value, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white)),
           Text(stat.title, style: const TextStyle(color: Colors.white54, fontSize: 12)),
         ],
       ),
@@ -136,7 +135,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Gelir Grafiği', style: GoogleFonts.poppins(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600)),
+          Text('Gelir Grafiği', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600)),
           const SizedBox(height: 20),
           Expanded(
             child: LineChart(LineChartData(
@@ -174,7 +173,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Kategoriler', style: GoogleFonts.poppins(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600)),
+          Text('Kategoriler', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600)),
           const SizedBox(height: 16),
           Expanded(
             child: categories.isEmpty
@@ -210,7 +209,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Son Eklenen Ürünler', style: GoogleFonts.poppins(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600)),
+          Text('Son Eklenen Ürünler', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600)),
           const SizedBox(height: 16),
           if (_loading)
             const Center(child: CircularProgressIndicator(color: primaryColor))

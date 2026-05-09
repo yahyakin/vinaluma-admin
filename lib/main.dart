@@ -3,7 +3,7 @@ import 'package:vinaluma_admin/screens/login/login_screen.dart';
 import 'package:vinaluma_admin/screens/main/main_screen.dart';
 import 'package:vinaluma_admin/services/api_service.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +28,7 @@ class _VinalumaAdminAppState extends State<VinalumaAdminApp> {
       title: 'Vinaluma ERP',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: bgColor,
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme).apply(bodyColor: Colors.white),
+        textTheme: ThemeData.dark().textTheme.apply(fontFamily: 'Poppins', bodyColor: Colors.white),
         canvasColor: secondaryColor,
         colorScheme: ColorScheme.dark(primary: primaryColor, secondary: accentColor),
       ),
