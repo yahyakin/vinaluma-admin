@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
   // Sunucu adresini değiştirin
-  static const String baseUrl = 'https://vinaluma.com/api/v1';
+  static const String baseUrl = 'https://api.vinaluma.com/api/v1';
   static const String apiKey = 'vnl_flutter_2026_sk_live';
 
   static String? _token;
