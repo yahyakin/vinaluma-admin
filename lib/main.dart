@@ -1,35 +1,40 @@
-import 'package:admin/constants.dart';
-import 'package:admin/controllers/menu_app_controller.dart';
-import 'package:admin/screens/main/main_screen.dart';
+import 'package:vinaluma_admin/constants.dart';
+import 'package:vinaluma_admin/screens/login/login_screen.dart';
+import 'package:vinaluma_admin/screens/main/main_screen.dart';
+import 'package:vinaluma_admin/services/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await ApiService.loadToken();
+  runApp(const VinalumaAdminApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class VinalumaAdminApp extends StatefulWidget {
+  const VinalumaAdminApp({Key? key}) : super(key: key);
+
+  @override
+  State<VinalumaAdminApp> createState() => _VinalumaAdminAppState();
+}
+
+class _VinalumaAdminAppState extends State<VinalumaAdminApp> {
+  bool _isLoggedIn = ApiService.isLoggedIn;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Admin Panel',
+      title: 'Vinaluma ERP',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: bgColor,
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
-            .apply(bodyColor: Colors.white),
+        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme).apply(bodyColor: Colors.white),
         canvasColor: secondaryColor,
+        colorScheme: ColorScheme.dark(primary: primaryColor, secondary: accentColor),
       ),
-      home: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => MenuAppController(),
-          ),
-        ],
-        child: MainScreen(),
-      ),
+      home: _isLoggedIn
+          ? const MainScreen()
+          : LoginScreen(onLoginSuccess: () => setState(() => _isLoggedIn = true)),
     );
   }
 }
