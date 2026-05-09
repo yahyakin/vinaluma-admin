@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (ok) {
         widget.onLoginSuccess();
       } else {
-        setState(() => _error = 'E-posta veya şifre hatalı');
+        setState(() => _error = ApiService.lastError ?? 'E-posta veya şifre hatalı');
       }
     } catch (e) {
       setState(() => _error = 'Bağlantı hatası: $e');
