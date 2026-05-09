@@ -21,11 +21,14 @@ class ApiService {
     final res = await http.post(
       Uri.parse('$baseUrl/auth/login'),
       headers: _headers,
-      body: jsonEncode({'email': email, 'password': password}),
+      body: jsonEncode({'identifier': email, 'password': password}),
     );
     if (res.statusCode == 200) {
-      final data = jsonDecode(res.body);
+      final body = jsonDecode(res.body);
+      // ApiResponse format: { success: true, data: { user: {...}, token: "..." } }
+      final data = body['data'] ?? body;
       _token = data['token'];
+      if (_token == null) return false;
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString('auth_token', _token!);
       await prefs.setString('user_name', data['user']?['name'] ?? '');
